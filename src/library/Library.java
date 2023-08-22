@@ -24,6 +24,29 @@ public class Library {
         }
     }
 
+    public static void printBookHeader() {
+        String titleHeader = String.format("%-30s", "Title");
+        String authorHeader = String.format("%-20s", "Author");
+        String dateHeader = String.format("%-15s", "Date Created");
+        String quantityHeader = String.format("%-10s", "Quantity");
+        String availabilityHeader = "Availability";
+
+        System.out.println(titleHeader + " | " + authorHeader
+                + " | " + dateHeader + " | " + quantityHeader
+                + " | " + availabilityHeader);
+    }
+    public void printBooks() {
+        System.out.println("---------------| Books |----------------");
+        if (books.isEmpty()) {
+            System.out.println("is Empty");
+            return;
+        }
+        printBookHeader();
+        for (Book book : books) {
+            book.printBook();
+        }
+    }
+
     public void sizeOfBooks() {
         System.out.println("number of books is :" + books.size());
     }

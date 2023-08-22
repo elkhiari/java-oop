@@ -10,9 +10,9 @@ public class Main {
     public static void main(String [] argv) {
         int start = 0;
         Users users = new Users();
+        Library library = new Library();
         Student localStorage = null;
         while (true) {
-            Scanner scanner = new Scanner(System.in);
             if (start == 0) {
                 System.out.println("-------------Hello to Library System manager---------------");
                 start++;
@@ -43,13 +43,29 @@ public class Main {
                         countOfRepeat++;
                     }
                 }
-                if (localStorage != null) {
+                while(localStorage != null) {
                     int menu = Menu();
+                    if (menu == 1) {
+                        library.printBooks();
+                    } else if (menu == 2) {
+                        library.addBook(createBook());
+                    }
                 }
             }
 
 
         }
+    }
+
+    private static Book createBook() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Title : ");
+        String title = scanner.nextLine();
+        System.out.println("Author : ");
+        String author = scanner.nextLine();
+        System.out.println("Quantity : ");
+        int quantity = scanner.nextInt();
+        return new Book(title,author,quantity);
     }
 
     public static int  MenuLogin() {

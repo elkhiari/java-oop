@@ -25,10 +25,17 @@ public class Book {
         return this.isAv;
     }
 
-    public void printBook(){
-        System.out.println(this.title + " | " + this.author
-                + " | " + this.dateCreating + " | " + this.qt
-                + " | " + (this.isAv ? "Available": "Not Available"));
+
+    public void printBook() {
+        String titleColumn = String.format("%-30s", this.title);
+        String authorColumn = String.format("%-20s", this.author);
+        String dateColumn = String.format("%-20s", this.dateCreating);
+        String quantityColumn = String.format("%-10s", this.qt);
+        String availabilityColumn = this.isAv ? "Yes" : "NO";
+
+        System.out.println(titleColumn + " | " + authorColumn
+                + " | " + dateColumn + " | " + quantityColumn
+                + " | " + availabilityColumn);
     }
     public void checkOut(){
         System.out.println(this.title + " is " +
